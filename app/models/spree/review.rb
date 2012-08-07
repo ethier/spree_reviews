@@ -1,5 +1,6 @@
 class Spree::Review < ActiveRecord::Base
   belongs_to :product
+  belongs_to :variant
   belongs_to :user
   has_many   :feedback_reviews
 
@@ -13,7 +14,7 @@ class Spree::Review < ActiveRecord::Base
   
   scope :localized, lambda { |lc| where('spree_reviews.locale = ?', lc) }
 
-  attr_protected :user_id, :product_id, :ip_address, :approved
+  attr_protected :user_id, :product_id, :variant_id, :ip_address, :approved
 
   class << self
     def approved
