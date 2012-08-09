@@ -38,7 +38,6 @@ class Spree::ReviewsController < Spree::BaseController
   private
 
   def load_product
-    debugger
     @product = Spree::Product.find_by_permalink!(params[:product_id])
   end
 
